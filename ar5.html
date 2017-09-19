@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.aframebox {
+height: 500px;
+width: 500px;
+}
+</style>
+
+<title>Page Title</title>
+</head>
+
+
+
+
+<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/examples/vendor/aframe/build/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+<script src='http://localhost:8080/AR.js/three.js/examples/vendor/three.js/examples/js/loaders/GLTF2Loader.js'></script>
+
+
+<body style='margin : 0px; overflow: hidden;'>
+	
+	<a-scene embedded arjs='trackingMethod: best;'>
+
+			<!-- Add your augmented reality here -->
+		<a-assets>
+			<a-asset-item id="mymodel" src="./data/Duck.gltf"></a-asset-item>
+		</a-assets>
+		
+			
+		<a-box position='0 1.5 0' material='opacity: 0.5; side:double; color:red;'>
+				<a-entity mmd='outline: true' afterglow:2.0;>
+					<a-entity scale="1.0 1.0 1.0" gltf-model="#mymodel"></a-entity>
+				</a-entity>
+		</a-box>
+
+		<a-marker-camera preset='hiro'> </a-marker-camera>
+	</a-scene>
+	
+	
+</body>
+</html>
